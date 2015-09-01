@@ -1,0 +1,144 @@
+// usage: cols(1) makes .cols-1-3 class with 1/12 width
+// cols(1,3) makes 1/3 column
+// cols(1,4,sm) makes .cols-sm-1-4 class width 1/4 width
+
+
+// settings, just change them before including this file.
+colsclassname ?= "cols"
+rowclassname ?= "row"
+default-cols ?= 12
+maxWidth ?= 1024px
+padding ?= 10px
+
+
+
+existing = (1 -1),(2 -1) // did not find to init empty array with files
+
+setWidth(classname, width, extend = true)
+    exists = false
+    if extend
+        for pair in existing
+            if width == pair[1]
+                exists = true
+                unless classname == pair[0]
+                    .{classname}
+                        @extends .{pair[0]}
+    pair = classname, width
+    unless exists
+        .{classname}
+            if width is 100%
+                width: width
+            else
+                width: width
+                *width: round((width - 0.031), 4)
+    
+    push(existing, pair)
+
+
+cols(amount, from = false, suffix = false)
+    extend = true
+    if from
+        amount = ""+amount+"-"+from
+
+    if suffix
+        extend = false
+        classname = colsclassname+"-"+suffix+"-"+amount
+    else
+        classname = colsclassname+"-"+amount
+
+    unless from
+        from = default-cols
+    width = round((100% / from * amount),4)
+    
+    setWidth(classname, width, extend)
+
+
+buildBasicGrid(suffix = false)
+    for num in (1..default-cols)
+        cols(num, false, suffix)
+
+
+buildClasses()
+
+    .opera-only :-o-prefocus,
+    .{rowclassname} {
+        word-spacing: -0.43em;
+    }
+    @require "../normalize-styl/_normalize.styl"
+    /**
+     * Extra rules that grid adds on top of Normalize.css
+     */
+
+    /**
+     * Always hide an element when it has the `hidden` HTML attribute.
+     */
+
+    [hidden] {
+        display: none !important;
+    }
+
+    /**
+     * Add this class to an image to make it fit within it's fluid parent wrapper while maintaining
+     * aspect ratio.
+     */
+    img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    /*csslint regex-selectors:false, known-properties:false, duplicate-properties:false*/
+
+    .{rowclassname} {
+        letter-spacing: -0.31em;
+        *letter-spacing: normal;
+        *word-spacing: -0.43em; 
+        text-rendering: optimizespeed;
+        display: flex;
+        flex-flow row wrap
+    }
+
+
+    /*
+    Resets the font family back to the OS/browser's default sans-serif font,
+    this the same font stack that Normalize.css sets for the `body`.
+    */
+    .{rowclassname} [class ^= {colsclassname}],
+    .{colsclassname} {
+        /* font-family: sans-serif; */
+        display: inline-block;
+        *display: inline;
+        zoom: 1;
+        letter-spacing: normal;
+        word-spacing: normal;
+        vertical-align: top;
+        text-rendering: auto;
+    }
+    .{rowclassname}
+        width 100%
+        max-width maxWidth
+        margin 0 auto
+    .{colsclassname},
+    .{rowclassname} [class ^= {colsclassname}]
+        padding 0 padding
+
+    .{rowclassname} .{rowclassname}
+        margin-left padding * -1
+        margin-right padding * -1
+
+    .{rowclassname}
+        &_vertical
+            &_middle
+                height 100%
+                align-items center
+                &:after
+                    content ''
+                    display inline-block
+                    vertical-align middle
+                    height 100%
+                [class ^= {colsclassname}]
+                    vertical-align middle
+    *,
+    *:after,
+    *:before
+        box-sizing border-box

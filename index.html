@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<title>flex-grid-styl</title>
+	<link rel="stylesheet" href="./example/main.css">
+</head>
+<body>
+	<div class="row">
+		<div class="cols-12">
+			<div class="example">
+				cols-12
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="cols-6">
+			<div class="example">cols-6</div>
+		</div>
+		<div class="cols-6">
+			<div class="example">cols-6</div>
+		</div>
+		<div class="cols-4">
+			<div class="example">cols-4</div>
+		</div>
+		<div class="cols-4">
+			<div class="example">cols-4</div>
+		</div>
+		<div class="cols-4">
+			<div class="example">cols-4</div>
+		</div>
+	</div>
+	<div class="row row_vertical_middle">
+		<div class="cols-6">
+			<div class="example">vertical middle</div>
+		</div>
+		<div class="cols-6">
+			<div class="example">
+				multiline
+				<br>
+				text
+			</div>
+		</div>
+	</div>
+	<div class="row row_vertical_middle" style="height:200px;">
+		<div class="cols-12">
+			<div class="example">
+				vertical middle in emply block
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="cols-6">
+			<div class="example">
+				it doesn't break when 
+				<br>
+				blocks are different sizes
+			</div>
+		</div>
+		<div class="cols-6">
+			<div class="example">
+				single line
+			</div>
+		</div>
+		<div class="cols-6">
+			<div class="example">
+				didn't break
+			</div>
+		</div>
+		<div class="cols-6">
+			<div class="example">
+				still on a new line
+			</div>
+		</div>
+	</div>
+</body>
+</html>
