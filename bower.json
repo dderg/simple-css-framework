@@ -1,0 +1,30 @@
+{
+  "name": "simple-css-framework",
+  "version": "0.1.0",
+  "authors": [
+    "Danila Dergachev <gnomdan@yandex.ru>"
+  ],
+  "description": "simple css framework that just works",
+  "main": "dist/grid.css",
+  "keywords": [
+    "css",
+    "stylus",
+    "styl",
+    "grid",
+    "simple",
+    "best",
+    "framework"
+  ],
+  "license": "MIT",
+  "homepage": "prog.github.io/simple-css-framework",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "normalize.styl": "~3.0.3"
+  }
+}
