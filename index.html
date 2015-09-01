@@ -9,6 +9,13 @@
 <body>
 	<div class="row">
 		<div class="cols-12">
+			<ul>
+				<li>
+					blocks are full width on mobile by default
+				</li>
+			</ul>
+		</div>
+		<div class="cols-12">
 			<div class="example">
 				cols-12
 			</div>
@@ -43,10 +50,44 @@
 			</div>
 		</div>
 	</div>
-	<div class="row row_vertical_middle" style="height:200px;">
+	<div class="row">
+		<div class="cols-3 cols-sm-6">
+			<div class="example">cols-3 cols-sm-6</div>
+		</div>
+		<div class="cols-3 cols-sm-6">
+			<div class="example">cols-3 cols-sm-6</div>
+		</div>
+		<div class="cols-3 cols-sm-6">
+			<div class="example">cols-3 cols-sm-6</div>
+		</div>
+		<div class="cols-3 cols-sm-6">
+			<div class="example">cols-3 cols-sm-6</div>
+		</div>
+	</div>
+	<div class="row">
 		<div class="cols-12">
+			<div style="height:200px; border:1px solid #ddd; margin-bottom: 20px;">
+				<div class="row row_vertical_middle">
+					<div class="cols-12">
+						<div class="example">
+							vertical middle in emply block
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="cols-6">
 			<div class="example">
-				vertical middle in emply block
+				<div class="row">
+					<div class="cols-6">
+						<div class="example">nested</div>
+					</div>
+					<div class="cols-6">
+						<div class="example">blocks</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -71,6 +112,21 @@
 		<div class="cols-6">
 			<div class="example">
 				still on a new line
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="cols-12">
+			<div class="text-center">
+				<div class="example">
+					text aligned on center with 'text-center' class
+				</div>
+				<div class="example hide-for-small">
+					hidden on small with 'hide-for-small'
+				</div>
+				<div class="example hide-for-large">
+					hidden on large with 'hide-for-large'
+				</div>
 			</div>
 		</div>
 	</div>
