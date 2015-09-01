@@ -7,41 +7,33 @@
 colsclassname ?= "cols"
 rowclassname ?= "row"
 default-cols ?= 12
-maxWidth ?= 1024px
+maxWidth ?= 1000px
 padding ?= 10px
+buildGrid ?= true
+buildExtended ?= true
+mobile ?= "only screen and (max-width: 520px)"
+not-mobile ?= "only screen and (min-width: 521px)"
 
 
 
-existing = (1 -1),(2 -1) // did not find to init empty array with files
 
-setWidth(classname, width, extend = true)
-    exists = false
-    if extend
-        for pair in existing
-            if width == pair[1]
-                exists = true
-                unless classname == pair[0]
-                    .{classname}
-                        @extends .{pair[0]}
-    pair = classname, width
-    unless exists
-        .{classname}
-            if width is 100%
-                width: width
-            else
-                width: width
-                *width: round((width - 0.031), 4)
+setWidth(classname, width)
+    .{classname}
+        if width is 100%
+            width: width
+        else
+            width: width
+            *width: round((width - 0.031), 4)
     
-    push(existing, pair)
+
 
 
 cols(amount, from = false, suffix = false)
-    extend = true
+
     if from
         amount = ""+amount+"-"+from
 
     if suffix
-        extend = false
         classname = colsclassname+"-"+suffix+"-"+amount
     else
         classname = colsclassname+"-"+amount
@@ -50,7 +42,7 @@ cols(amount, from = false, suffix = false)
         from = default-cols
     width = round((100% / from * amount),4)
     
-    setWidth(classname, width, extend)
+    setWidth(classname, width)
 
 
 buildBasicGrid(suffix = false)
@@ -103,7 +95,7 @@ buildClasses()
     Resets the font family back to the OS/browser's default sans-serif font,
     this the same font stack that Normalize.css sets for the `body`.
     */
-    .{rowclassname} [class ^= {colsclassname}],
+    [class^={colsclassname}],
     .{colsclassname} {
         /* font-family: sans-serif; */
         display: inline-block;
@@ -113,9 +105,11 @@ buildClasses()
         word-spacing: normal;
         vertical-align: top;
         text-rendering: auto;
+        @media mobile {
+            width 100%
+        }
     }
     .{rowclassname}
-        width 100%
         max-width maxWidth
         margin 0 auto
     .{colsclassname},
@@ -142,3 +136,22 @@ buildClasses()
     *:after,
     *:before
         box-sizing border-box
+
+buildExtendedClasses()
+    .text-center
+        text-align center
+    .hide-for-small
+        @media mobile
+            display none
+    .hide-for-large
+        @media not-mobile
+            display none
+
+if buildGrid
+    buildBasicGrid()
+    buildClasses()
+    @media mobile
+        buildBasicGrid('sm')
+
+if buildExtended
+    buildExtendedClasses()
