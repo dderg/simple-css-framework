@@ -5,7 +5,7 @@
     "Danila Dergachev <gnomdan@yandex.ru>"
   ],
   "description": "simple css framework that just works",
-  "main": "dist/grid.css",
+  "main": "src/grid.styl",
   "keywords": [
     "css",
     "stylus",
