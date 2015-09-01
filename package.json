@@ -1,8 +1,8 @@
 {
   "name": "flex-grid-styl",
-  "version": "1.0.0",
+  "version": "1.0.0-alpha",
   "description": "",
-  "main": "grid.css",
+  "main": "dist/grid.css",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
