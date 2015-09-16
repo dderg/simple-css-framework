@@ -8,7 +8,6 @@ gulp.task('ex_stylus', function () {
         .pipe(gulp.dest('./example'));
 });
 
-
 gulp.task('example', ['ex_stylus']);
 
 gulp.task('stylus', function () {
