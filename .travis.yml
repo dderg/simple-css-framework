@@ -4,10 +4,10 @@ node_js:
     - "0.12"
 
 before_script:
-	- "npm install -g gulp"
-	- "npm install -g webdriverio"
-	- "gulp build"
+    - "npm install -g gulp"
+    - "npm install -g webdriverio"
+    - "gulp build"
 
 branches:
-	only:
-		- gh-pages
+    only:
+        - gh-pages
