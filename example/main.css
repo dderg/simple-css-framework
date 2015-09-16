@@ -233,7 +233,6 @@ th {
 img {
   max-width: 100%;
   height: auto;
-  display: block;
 }
 .row {
   letter-spacing: -0.31em;
@@ -365,4 +364,7 @@ body {
 }
 .example:hover {
   background: #ddd;
+}
+.margins {
+  margin: 10px 0;
 }
