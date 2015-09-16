@@ -8,12 +8,8 @@ gulp.task('ex_stylus', function () {
         .pipe(gulp.dest('./example'));
 });
 
-gulp.task('ex_watch', function () {
-    gulp.watch('./example/main.styl', ['ex_stylus']);
-    gulp.watch('./src/grid.styl', ['ex_stylus']);
-});
 
-gulp.task('example', ['ex_stylus', 'ex_watch']);
+gulp.task('example', ['ex_stylus']);
 
 gulp.task('stylus', function () {
     return gulp.src('./src/grid.styl')
@@ -23,7 +19,8 @@ gulp.task('stylus', function () {
 });
 
 gulp.task('watch', function () {
-    gulp.watch('./src/grid.styl', ['stylus']);
+    gulp.watch('./example/main.styl', ['ex_stylus']);
+    gulp.watch('./src/grid.styl', ['stylus', 'ex_stylus']);
 });
 
 gulp.task('build', ['stylus', 'example']);
