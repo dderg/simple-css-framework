@@ -19,13 +19,15 @@ not-mobile ?= "only screen and (min-width: 521px)"
 
 setWidth(classname, width)
     .{classname}
-        if width is 100%
-            width: width
-        else
-            width: width
-            *width: round((width - 0.031), 4)
+        width: width
     
-
+$clearfix
+    &:before,
+    &:after
+        content ' '
+        display table
+    &:after
+        clear both
 
 
 cols(amount, from = false, suffix = false)
@@ -66,7 +68,7 @@ buildClasses()
      */
 
     [hidden] {
-        display: none !important;
+        display: none;
     }
 
     /**
@@ -82,8 +84,6 @@ buildClasses()
 
     .{rowclassname} {
         letter-spacing: -0.31em;
-        *letter-spacing: normal;
-        *word-spacing: -0.43em; 
         text-rendering: optimizespeed;
         display: flex;
         flex-flow row wrap
@@ -96,14 +96,12 @@ buildClasses()
     */
     [class^={colsclassname}],
     .{colsclassname} {
-        /* font-family: sans-serif; */
-        display: inline-block;
-        *display: inline;
-        zoom: 1;
-        letter-spacing: normal;
-        word-spacing: normal;
-        vertical-align: top;
-        text-rendering: auto;
+        display inline-block
+        zoom 1
+        letter-spacing normal
+        word-spacing normal
+        vertical-align top
+        text-rendering auto
         @media mobile {
             width 100%
         }
