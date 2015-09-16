@@ -26,5 +26,5 @@ gulp.task('watch', function () {
     gulp.watch('./src/grid.styl', ['stylus']);
 });
 
-gulp.task('build', ['stylus', 'watch']);
-gulp.task('default', ['example', 'build']);
+gulp.task('build', ['stylus', 'example']);
+gulp.task('default', ['build', 'watch']);
