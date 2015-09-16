@@ -9,7 +9,7 @@ describe('alignment', function () {
             .then(function (location) {
                 offset = location;
             })
-            .getLocation('#vmiddleInner', 'y')
+            .getLocation('#vmiddle-inner', 'y')
             .then(function (location) {
                 offset = location - offset;
             })
@@ -17,7 +17,7 @@ describe('alignment', function () {
             .then(function (size) {
                 outerHeight = size;
             })
-            .getElementSize('#vmiddleInner', 'height')
+            .getElementSize('#vmiddle-inner', 'height')
             .then(function (size) {
                 expect(outerHeight - size).to.equal(offset / 2)
             });
