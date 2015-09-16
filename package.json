@@ -1,6 +1,6 @@
 {
   "name": "simple-css-framework",
-  "version": "1.0.0-alpha.2",
+  "version": "1.0.0-alpha.6",
   "description": "",
   "main": "dist/grid.css",
   "scripts": {
