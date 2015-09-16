@@ -2,6 +2,8 @@
 
 Tested on IE8+, Opera 10+, Chrome14+, Firefox29+, Safari8+
 
+[![Build Status](https://travis-ci.org/prog666/simple-css-framework.svg?branch=gh-pages)](https://travis-ci.org/prog666/simple-css-framework)
+
 ## Installation
 
 ```sh
