@@ -1,7 +1,7 @@
 var expect = require('chai').expect;
 
 describe('alignment', function () {
-    it('should have margins not summed', function () {
+    it('vertical_middle should place block in center', function () {
         var offset, outerHeight;
         return browser
             .url('/')
@@ -19,7 +19,7 @@ describe('alignment', function () {
             })
             .getElementSize('#vmiddle-inner', 'height')
             .then(function (size) {
-                expect(outerHeight - size).to.equal(offset / 2)
+                expect(parseInt((outerHeight - size) / 2)).to.equal(offset)
             });
 
     });
