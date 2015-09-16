@@ -21,6 +21,5 @@ describe('alignment', function () {
             .then(function (size) {
                 expect(parseInt((outerHeight - size) / 2)).to.equal(offset)
             });
-
     });
 })
